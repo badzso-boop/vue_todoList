@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="js/vue.min.js"></script>
+    <title>Proba</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="">Belépés/Regisztráció</a>
+            </li>
+            <li>
+                <a href="">Főoldal</a>
+            </li>
+            <li>
+                <a href="">Teendők</a>
+            </li>
+            <li>
+                <a href="">Géphasználat</a>
+            </li>
+            <li>
+                <a href="">Kilépés</a>
+            </li>
+            <li>
+                <a href="">Felhasználói profil</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id = "main">
+        <!-- <%= content %> -->
+        <div id = "belepes">
+            <h1>Belépés</h1>
+            <input v-model="username" placeholder="Felhasználónév/Email cím">
+            <input v-model = "password" placeholder="Jelszó...">
+            
+            <p>felhasználónév: {{ username }} Jelszó: {{password}}</p>
+        </div>
+        <div id = "reg">
+            <h1>Regisztráció</h1>
+            <input v-model="username" placeholder="Felhasználónév/Email cím">
+            <input v-model = "password" placeholder="Jelszó...">
+
+            <p>felhasználónév: {{ username }} Jelszó: {{password}}</p>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <h4>Készítette a Programozó palánták csapat</h4>
+    </footer>
+
+    <script>
+        var belepes = new Vue({
+            el: '#belepes',
+            data: {
+                username: '',
+                password: ''
+            }
+        });
+        var reg = new Vue({
+            el: '#reg',
+            data: {
+                username: '',
+                password: ''
+            }
+        });
+    </script>
+</body>
+</html>

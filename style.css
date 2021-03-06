@@ -1,0 +1,30 @@
+nav
+{
+    position: absolute;
+    margin: 0 auto;
+    line-height: 30px;
+    text-decoration: none;
+    color: black;
+    list-style: none;
+}
+
+#main
+{
+    width: 70%;
+    height: 100%;
+    color: rebeccapurple;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: crimson;
+}
+
+footer
+{
+    background-color: rgba(0,0,0, .7);
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    padding: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
