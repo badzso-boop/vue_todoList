@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="style.css">  
+        <title>Proba</title>
+    </head>
+<body>
+    <div id="oldal">
+        <navigacio></navigacio>
+        
+        <div id="proba"></div>
+        
+        <div id = "teendok">
+            <form v-on:submit.prevent="todoAdd">
+                <label for="todoList">Adjon hozza egy új feladatot</label>
+                <input v-model = "newTodo" id = "todoList" placeholder = "Köszönj lajosnak!">
+                <button>Add hozzá</button>
+                </form>
+            <ul>
+                <li is = "todoItem" v-for="(todo, index) in todos" v-bind:key="todo.id" 
+                v-bind:cim="todo.cim" v-on:remove="todos.splice(index,1)"></li>
+            </ul>
+        </div>
+
+        <lab></lab>
+    </div>
+    <script src = "js/main.js"></script>
+</body>
+</html>
