@@ -17,7 +17,20 @@
     <div id="oldal">
         <navigacio></navigacio>
         
-        
+        <div id = "main" class="container-fluid lila py-3">
+            <!-- <%= content %> -->
+            <div id = "belepes" class="container-fluid lila py-3">
+                <h1><kbd>Belépés</kbd></h1>
+                <input v-model="username" placeholder="Felhasználónév/Email cím">
+                <input v-model = "password" placeholder="Jelszó...">
+            </div>
+            <div id = "reg" class="container-fluid lila py-3">
+                <h1><kbd>Regisztráció</kbd></h1>
+                <input v-model="username" placeholder="Felhasználónév/Email cím">
+                <input v-model = "password" placeholder="Jelszó...">
+    
+            </div>
+        </div>
 
         <lab></lab>
     </div>

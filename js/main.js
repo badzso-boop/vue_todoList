@@ -11,13 +11,12 @@ var app = new Vue({
     },
     methods: {
         nagybetu: function() {
+            this.kattint = !this.kattint
             if(this.kattint){
                 this.szoveg2 = this.szoveg2.toLowerCase()
-                this.kattint = false
             }
             else {
                 this.szoveg2 = this.szoveg2.toUpperCase()
-                this.kattint = true
             }
         },
         reverseMessage: function() {

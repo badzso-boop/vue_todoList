@@ -1,15 +1,18 @@
 Vue.component('todoItem', {
     template: '\
-    <li>{{cim}}\
-    <button v-on:click="$emit(\'remove\')">Töröl</button>\
-    <button v-on:click="$emit(\'szerkeszt\')">Szerkesztés</button>\
+    <li>{{cim}}, {{id}}\
+    <br>\
+    <button type="submit" class="btn btn-danger my-3 mx-1 p-1" v-on:click="$emit(\'remove\')">Töröl</button>\
+    <button type="submit" class="btn btn-info my-3 mx-1 p-1" v-on:click="$emit(\'szerkeszt\')">Szerkesztés</button>\
     </li>',
-    props: ['cim']
+    props: ['cim', 'id']
 })
 
-new Vue({
+var app2 = new Vue({
     el: '#teendok',
     data: {
+        todoSzerkeszt: '',
+        szoveg: 'szia',
         newTodo: '',
         todos: [
             {id: 1, cim: 'Norbi',},
@@ -17,18 +20,21 @@ new Vue({
             {id: 3, cim: 'Ádám',}
         ],
         nextTodoId: 4,
-        szia: 'hali ur'
+        seen: true,
+        szoveg: '',
+        szam: 0
     },
     methods: {
+        szerkeszt: function(cim,id) {
+            this.seen = !this.seen
+            
+        },
         todoAdd: function() {
             this.todos.push({
                 id: this.nextTodoId++,
                 cim: this.newTodo
             })
             this.newTodo = ''
-        },
-        szerkeszt: function() {
-            this.szia = 'nemhali ur'
         }
     }
 })

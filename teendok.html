@@ -13,24 +13,29 @@
         <link rel="stylesheet" href="style.css">  
         <title>Proba</title>
     </head>
-<body>
+<body class="m-0 lila">
     <div id="oldal">
         <navigacio></navigacio>
         <lab></lab>
     </div>
 
-    <div id = "teendok">
-        <form v-on:submit.prevent="todoAdd">
-            <label for="todoList">Adjon hozza egy új feladatot</label>
-            <input v-model = "newTodo" id = "todoList" placeholder = "Köszönj lajosnak!">
-            <button>Add hozzá</button>
-            </form>
-        <ul>
-            <li is = "todoItem" v-for="(todo, index) in todos" v-bind:key="todo.id" 
-            v-bind:cim="todo.cim" v-on:remove="todos.splice(index,1)"></li>
-
-            <li v-on:szerkeszt="this.szia.toUppercase()">{{szia}}</li>
-        </ul>
+    <div id = "teendok" class="container py-3 form-group">
+        <div class="row">
+            <div class="list-group col-sm text-wrap">
+                <form v-on:submit.prevent="todoAdd">
+                <label for="todoList">Adjon hozza egy új feladatot</label>
+                <input type="text" required class="form-control" v-model = "newTodo" id = "todoList" placeholder = "Köszönj lajosnak!">
+                <button type="submit" class="btn btn-primary my-3">Add hozzá</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="list-group col-sm text-wrap">
+                <p class="list-group-item list-group-item-warning d-block text-break " style="word-break: break-word" is = "todoItem" v-for="(todo, index) in todos" v-bind:key="todo.id" v-bind:cim="todo.cim" v-on:remove="todos.splice(index,1)" v-on:szerkeszt="szerkeszt"></p>
+            </div>
+        </div>
+        <input v-model="todoSzerkeszt" placeholder = "szerkesztés" v-if = "seen">
+        <button v-if = "seen">Szerkesztés</button>
     </div>
     
     <script src = "js/teendok.js"></script>
