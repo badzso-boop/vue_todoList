@@ -17,26 +17,10 @@
     <div id="oldal">
         <navigacio></navigacio>
         
-        <div id = "main" class="container-fluid lila py-3x">
-            <!-- <%= content %> -->
-            <div id = "belepes" class="container-fluid lila py-3">
-                <h1><kbd>Belépés</kbd></h1>
-                <input v-model="username" placeholder="Felhasználónév/Email cím">
-                <input v-model = "password" placeholder="Jelszó...">
-            </div>
-            <div id = "reg" class="container-fluid lila py-3">
-                <h1><kbd>Regisztráció</kbd></h1>
-                <input v-model="username" placeholder="Felhasználónév/Email cím">
-                <input v-model = "password" placeholder="Jelszó...">
-    
-            </div>
-        </div>
+        
 
         <lab></lab>
     </div>
-
-    
-
     <div id = "proba">
         <div v-if="tuntesd">
             <h1>{{ udvozlom }}</h1>
@@ -49,24 +33,10 @@
         </div>
         <button v-on:click="reverseMessage">Visszafele kiírás</button>
         <button v-on:click="varazslat">{{szoveg}}</button>
+        <button v-on:click="nagybetu">nyomj meg</button>
+        <h1>{{szoveg2}}</h1>
     </div>
-
-    <div id = "teendok">
-        <form v-on:submit.prevent="todoAdd">
-            <label for="todoList">Adjon hozza egy új feladatot</label>
-            <input v-model = "newTodo" id = "todoList" placeholder = "Köszönj lajosnak!">
-            <button>Add hozzá</button>
-            </form>
-        <ul>
-            <li is = "todoItem" v-for="(todo, index) in todos" v-bind:key="todo.id" 
-            v-bind:cim="todo.cim" v-on:remove="todos.splice(index,1)"></li>
-        </ul>
-    </div>
-
-    
-
-
-    
     <script src = "js/main.js"></script>
+    <script src = "komponensek/components.js"></script>
 </body>
 </html>
