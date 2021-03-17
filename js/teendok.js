@@ -8,33 +8,45 @@ Vue.component('todoItem', {
     props: ['cim', 'id']
 })
 
-var app2 = new Vue({
+var app = new Vue({
     el: '#teendok',
     data: {
-        todoSzerkeszt: '',
-        szoveg: 'szia',
-        newTodo: '',
-        todos: [
-            {id: 1, cim: 'Norbi',},
-            {id: 2, cim: 'Dávid',},
-            {id: 3, cim: 'Ádám',}
-        ],
-        nextTodoId: 4,
-        seen: true,
-        szoveg: '',
-        szam: 0
+        uzenet: 'Üdvözöllek az oldalon',
+        addInput: '',
+        addAuthor: '',
+        szerkesztettTodo: 'Szerkeszt',
+        szerkesztettText: '',
+        editMode: false,
+        nextTodoId: 0,
+        seen: false,
+        todos: [],
     },
     methods: {
-        szerkeszt: function(cim,id) {
-            this.seen = !this.seen
-            
-        },
-        todoAdd: function() {
+        addTodo: function() {
             this.todos.push({
-                id: this.nextTodoId++,
-                cim: this.newTodo
+                id: this.nextTodoId,
+                cim: this.addInput,
+                kesz: false,
+                author: this.addAuthor,
+                editMode: this.editMode
             })
-            this.newTodo = ''
+            this.nextTodoId++
+
+            this.addInput = ''
+        },
+        szerkeszt: function(todoId) {
+            //this.editMode = !this.editMode
+            this.todos[todoId].editMode = !this.todos[todoId].editMode
+            if(this.todos[todoId].editMode)
+            {
+                this.szerkesztettTodo = 'Mentés'
+            } else {
+                this.szerkesztettTodo = 'Szerkeszt'
+            }
+            this.szerkesztettText = this.todos[todoId].cim
+            this.todos[todoId].cim = this.szerkesztettText
+
+            this.szerkesztettText = ''
         }
     }
 })

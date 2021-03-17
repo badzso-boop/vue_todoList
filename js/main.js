@@ -1,37 +1,23 @@
 var app = new Vue({
     el: '#proba',
     data: {
-        udvozlom: 'Norbert',
-        kattint: false,
-        seen: true,
-        tuntesd: true,
-        szoveg: 'Varazslat',
-        versenyzok: ['krozser', 'adam', 'norbi', 15],
-        szoveg2: 'szia'
+        nev: '',
+        username: '',
+        password: '',
+        password2: ''
     },
     methods: {
-        nagybetu: function() {
-            this.kattint = !this.kattint
-            if(this.kattint){
-                this.szoveg2 = this.szoveg2.toLowerCase()
-            }
-            else {
-                this.szoveg2 = this.szoveg2.toUpperCase()
-            }
-        },
-        reverseMessage: function() {
-            this.udvozlom = this.udvozlom.split('').reverse().join('')
-        },
-        varazslat: function() {
-            this.tuntesd = !this.tuntesd
-            if(this.tuntesd)
-            {
-                this.szoveg = 'Varazslat'
-            }
-            else
-            {
-                this.szoveg = 'megse varazsolok'
-            }
+        reg: function() {
+            axios({
+                method: 'post',
+                url: '/login',
+                data: {
+                    nev: this.nev,
+                    email: this.email,
+                    password: this.password,
+                    password2: this.password2
+                }
+            });
         }
     }
 })

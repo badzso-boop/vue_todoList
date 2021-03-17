@@ -26,28 +26,15 @@
             </div>
             <div id = "reg" class="container-fluid lila py-3">
                 <h1><kbd>Regisztráció</kbd></h1>
+                <input v-model="nev" placeholder="Adje meg a teljes nevét">
                 <input v-model="username" placeholder="Felhasználónév/Email cím">
                 <input v-model = "password" placeholder="Jelszó...">
-    
+                <input v-model = "password2" placeholder="Jelszó újra...">
+                <button @click = "reg"></button>
             </div>
         </div>
 
         <lab></lab>
-    </div>
-    <div id = "proba">
-        <div v-if="tuntesd">
-            <h1>{{ udvozlom }}</h1>
-            <p v-if="seen">Most latsz engem</p>
-            <ol>
-                <li v-for = "verseny in versenyzok">
-                    {{ verseny }}
-                </li>
-            </ol>
-        </div>
-        <button v-on:click="reverseMessage">Visszafele kiírás</button>
-        <button v-on:click="varazslat">{{szoveg}}</button>
-        <button v-on:click="nagybetu">nyomj meg</button>
-        <h1>{{szoveg2}}</h1>
     </div>
     <script src = "js/main.js"></script>
     <script src = "komponensek/components.js"></script>

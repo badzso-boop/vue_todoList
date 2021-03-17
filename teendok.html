@@ -19,6 +19,33 @@
         <lab></lab>
     </div>
 
+    <div id = "teendok" class="container py-3 form-group px-4">
+        <div class="row">
+            <div class="list-group col-sm text-wrap px-0">
+                <h1 class="text-center w-100 p-3 lila">{{uzenet}}</h1>
+                <form name = "todo-form" v-on:submit.prevent="addTodo">
+                    <input name = "add-todo" required class="form-control my-2" type="text" v-model = "addInput" placeholder = "Teendő">
+                    <input name = "add-author" required class="form-control" type="text" v-model = "addAuthor" placeholder = "Személy">
+                    <button type="submit" class="btn btn-success rounded my-3">Hozzáad</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="row mt-4">
+            <div class="list-group col-sm text-wrap px-0 mb-4">
+                <h1 class="mb-4">Teendők</h1>
+                <p class="list-group-item list-group-item-warning d-block text-break rounded" style="word-break: break-word" v-for = "(todo, index) in todos"> 
+                    <span v-show="!todo.editMode"> {{todo.cim}} </span>
+                    <input type="text" v-bind:placeholder = "todo.cim" v-show="todo.editMode" v-model = "todo.cim">
+                    <br>
+                    <button class="btn btn-danger my-3 mx-1 p-1" v-on:click="todos.splice(index,1)">Töröl</button>
+                    <button class="btn btn-info my-3 mx-1 p-1" v-on:click="szerkeszt(todo.id)">{{szerkesztettTodo}}</button>
+                </p>
+            </div>
+        </div>     
+    </div>
+
+    <!--
     <div id = "teendok" class="container py-3 form-group">
         <div class="row">
             <div class="list-group col-sm text-wrap">
@@ -37,7 +64,8 @@
         <input v-model="todoSzerkeszt" placeholder = "szerkesztés" v-if = "seen">
         <button v-if = "seen">Szerkesztés</button>
     </div>
-    
+    -->
+
     <script src = "js/teendok.js"></script>
     <script src = "komponensek/components.js"></script>
 </body>

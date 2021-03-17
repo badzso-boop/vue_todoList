@@ -11,6 +11,12 @@
     font-size: 1.2rem;
 }
 
+hr
+{
+  border-top: solid black;
+  border-radius: 25%;
+}
+
 .lila
 {
     background-color: rgba(102,51,153,.5);
