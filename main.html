@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css">  
     <title>Proba</title>
 </head>
@@ -21,22 +22,24 @@
             <!-- <%= content %> -->
             <div id = "belepes" class="container-fluid lila py-3">
                 <h1><kbd>Belépés</kbd></h1>
-                <input v-model="username" placeholder="Felhasználónév/Email cím">
-                <input v-model = "password" placeholder="Jelszó...">
-            </div>
-            <div id = "reg" class="container-fluid lila py-3">
+                <input v-model="signin.username" placeholder="Felhasználónév/Email cím">
+                <input v-model="signin.password" placeholder="Jelszó...">
+                <p>{{errormsgsign}}</p>
+                <!--<button @click = "belepes">Belépés</button>-->
+            </div>        
+            <div id = "regisztracio" class="container-fluid lila py-3">
                 <h1><kbd>Regisztráció</kbd></h1>
-                <input v-model="nev" placeholder="Adje meg a teljes nevét">
-                <input v-model="username" placeholder="Felhasználónév/Email cím">
-                <input v-model = "password" placeholder="Jelszó...">
-                <input v-model = "password2" placeholder="Jelszó újra...">
-                <button @click = "reg"></button>
+                <input v-model="reg.nev" placeholder="Teljes név">
+                <input v-model="reg.email" placeholder="Felhasználónév/E-mail cím">
+                <input type = "password" v-model="reg.password" placeholder="Jelszó...">
+                <input type = "password" v-model="reg.password2" placeholder="Jelszó újra...">
+                <p>{{errormsgreg}}</p>
+                <button @click = "regisztracio">Regisztráció</button>
             </div>
         </div>
-
+        
         <lab></lab>
     </div>
     <script src = "js/main.js"></script>
-    <script src = "komponensek/components.js"></script>
 </body>
 </html>
