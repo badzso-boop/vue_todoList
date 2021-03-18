@@ -41,20 +41,16 @@ Vue.component('lab',{
 var app2 = new Vue({
     el: '#oldal',
     data: {
-        reg: [
-            {
-                nev: '',
-                email: '',
-                password: '',
-                password2: ''
-            }
-        ],
-        signin: [
-            {
+        reg: {            
+                nev: null,
+                email: null,
+                password: null,
+                password2: null
+            },
+        signin: {
                username: '',
                password: ''
-            }
-        ],
+            },
         errormsgreg: '',
         errormsgsign: ''
     },
@@ -92,5 +88,11 @@ var app2 = new Vue({
                 });
             }
         },
+        kitoltes: function() {
+            this.reg.nev = 'Ujj Norbert',
+            this.reg.email = 'norbert.ujj@gmail.com',
+            this.reg.password = 'Jelszo123',
+            this.reg.password2 = 'Jelszo123'
+        }
     }
 })
