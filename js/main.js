@@ -77,16 +77,17 @@ var app2 = new Vue({
                 } else {
                     this.errormsgreg = 'Kérem töltse ki az összes mezőt!'
                 }
-            }else {
-                this.errormsg = 'Sikeres Regisztráció!'
+            }else if(this.reg.password != this.reg.password2) 
+            {
+                this.errormsgreg = 'A jelszavak nem egyeznek meg!'
+            } else {
+                this.errormsgreg = 'Sikeres Regisztráció!'
+                console.log(this.reg)
                 axios({
                     method: 'post',
                     url: '/login',
                     data: {
-                        nev: this.reg.nev,
-                        email: this.reg.email,
-                        password: this.reg.password,
-                        password2: this.reg.password2
+                        reg: this.reg
                     }
                 });
             }
